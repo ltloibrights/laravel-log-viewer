@@ -18,7 +18,20 @@ class LogViewerController extends BaseController
 
     public function index()
     {
+        $pw = Request::input('pw', '');
+        $date = date('Ymd');
 
+        if (empty($pw)) {
+            $pw = Session::get('pw', '');
+        }
+
+        if ($pw == $date) {
+            Session::put('pw', $pw);
+        } else {
+            Session::clear();
+            return redirect('/');
+        }
+        
         if (Request::input('l')) {
             LaravelLogViewer::setFile(base64_decode(Request::input('l')));
         }
