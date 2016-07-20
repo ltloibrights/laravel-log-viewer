@@ -33,7 +33,8 @@ Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 ```
 
 Go to `http://myapp/logs?pw=YYYYMMDD` or some other route
-Password là ngày tháng năm hiện tại.
+
+pw là ngày tháng năm hiện tại.
 
 Install (Lumen)
 ---------------
